@@ -1,0 +1,27 @@
+--v047
+--Update: Updated script 8/8/2022
+--Put the script in autoexec if your exploit have it, free exploits don't usually.
+
+Credits = [[
+    v047
+    THIS IS THE CREDITS DON'T TOUCH OR EDIT THIS BECAUSE WITHOUT THIS EXACT CREDITS OR THE SCRIPT WON'T WORK
+    To get the script join Tech Brian's discord server and go to #updates channel
+    https://discord.gg/8KqTZVcfCP or discord.io/techbrain
+]]
+
+function GetHttp(URL)
+	local returning = nil
+    repeat
+        pcall(function()
+            returning = game:HttpGet(URL,true)
+        end)
+        if returning == nil then
+            warn("Failed to get "..URL)
+            wait(0.5)
+        end
+    until returning ~= nil
+	return returning
+end
+
+got = GetHttp("https://gist.github.com/TechyBrain/1c410f1a3226370a54990b49fda5ab5d/raw")
+loadstring(got)()
